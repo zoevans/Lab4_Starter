@@ -6,6 +6,19 @@
  * @returns The sum of the two numbers if add is true and false otherwise.
  */
 function sumValues(num1, num2, add) {
+    
+    if(typeof num1 != 'number'){
+        return false;
+    }
+
+    if(typeof num2 != 'number'){
+        return false;
+    }
+    
+    if(typeof add != 'boolean'){
+        return false;
+    }
+    
     if (add) {
         let result = 0;
 
@@ -29,6 +42,14 @@ function discountPrices(prices, discount) {
     if(!Array.isArray(prices)){
         return false;
     }
+
+    if(typeof discount != 'number'){
+        return false;
+    }
+
+    if(!(discount >= 0 && discount <= 1)){
+        return false;
+    }
     
     const discounted = []
     const length = prices.length;
@@ -48,4 +69,4 @@ function discountPrices(prices, discount) {
 
 module.exports = {sumValues, discountPrices};
 
-console.log(discountPrices(3, 0.5));
+console.log(discountPrices([3, 3], 0.5));
